@@ -1,7 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
-const movieAPI = require('../api/movies')
+const api  = require('../api/movies')
 
 const start = (options) => {
   return new Promise((resolve, reject) => {
@@ -22,7 +22,7 @@ const start = (options) => {
     })
 
     // add our APIs to the express app
-    movieAPI(app, options)
+    api (app, options)
 
     // start the server, and return the newly created server
     const server = app.listen(options.port, () => resolve(server))
